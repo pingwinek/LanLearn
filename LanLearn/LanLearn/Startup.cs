@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dto;
+using Dto.Migrations.Seed;
+using LanLearn.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,8 @@ namespace LanLearn
         {
             services.AddMvc();
             services.AddSingleton(Configuration);
+            services.AddScoped<ITranslateService, TranslateService>();
+
             services.AddDbContext<LanLearnDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("LanLearnConnection")));
         }

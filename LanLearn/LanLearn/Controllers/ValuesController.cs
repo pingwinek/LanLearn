@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dto;
+using Dto.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanLearn.Controllers
@@ -9,11 +11,20 @@ namespace LanLearn.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        private readonly ITranslateService _translateService;
+
+        public ValuesController(ITranslateService translateService)
+        {
+            _translateService = translateService;
+        }
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<EnglishDictionary> Get()
         {
-            return new string[] { "value1", "value2" };
+            var translateService = _translateService.GetListWords(10);
+
+            return translateService;
         }
 
         // GET api/values/5

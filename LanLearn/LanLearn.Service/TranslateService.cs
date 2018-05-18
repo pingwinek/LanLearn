@@ -2,15 +2,23 @@
 using Dto.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace LanLearn.Service
 {
     public class TranslateService : ITranslateService
     {
-        public IEnumerable<EnglishDictionary> GetListWords(int account)
+        private readonly LanLearnDbContext _context;
+
+        public TranslateService(LanLearnDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public IEnumerable<EnglishDictionary> GetListWords(int count)
+        {
+            return _context.EnglishDictionaries.Take(count);
         }
     }
 }
