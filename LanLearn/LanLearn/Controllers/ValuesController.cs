@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dto;
 using Dto.Models;
+using LanLearn.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanLearn.Controllers
@@ -20,11 +21,21 @@ namespace LanLearn.Controllers
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<EnglishDictionary> Get()
+        public WordsList Get()
         {
-            var translateService = _translateService.GetListWords(10);
+            var words = _translateService.GetListWords(1).Select(a => new Word
+            {
+                WordId = a.Id,
+                Name = a.EnglishWord,
+                Rank = a.Rank
+            });
 
-            return translateService;
+            var model = new WordsList
+            {
+                Words = words
+            };
+
+            return model;
         }
 
         // GET api/values/5
