@@ -16,7 +16,13 @@ namespace Dto
         {
         }
 
-        public virtual DbSet<EnglishDictionary> EnglishDictionaries { get; set; }
-        public virtual DbSet<PartOfSpeech> PartsOfSpeech { get; set; }
+        public DbSet<EnglishDictionary> EnglishDictionaries { get; set; }
+        public DbSet<PartOfSpeech> PartsOfSpeech { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PartOfSpeech>().ToTable("PartsOfSpeech");
+            modelBuilder.Entity<EnglishDictionary>().ToTable("EnglishDictionaries");
+        }
     }
 }

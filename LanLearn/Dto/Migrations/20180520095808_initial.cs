@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Dto.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,6 +16,7 @@ namespace Dto.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
+                    PolishTranslate = table.Column<string>(nullable: true),
                     Symbol = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -30,7 +31,7 @@ namespace Dto.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     EnglishWord = table.Column<string>(nullable: true),
-                    PartOfSpeechId = table.Column<int>(nullable: true),
+                    PartOfSpeechID = table.Column<int>(nullable: false),
                     PolishTranslate = table.Column<string>(nullable: true),
                     Rank = table.Column<int>(nullable: false)
                 },
@@ -38,17 +39,17 @@ namespace Dto.Migrations
                 {
                     table.PrimaryKey("PK_EnglishDictionaries", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EnglishDictionaries_PartsOfSpeech_PartOfSpeechId",
-                        column: x => x.PartOfSpeechId,
+                        name: "FK_EnglishDictionaries_PartsOfSpeech_PartOfSpeechID",
+                        column: x => x.PartOfSpeechID,
                         principalTable: "PartsOfSpeech",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EnglishDictionaries_PartOfSpeechId",
+                name: "IX_EnglishDictionaries_PartOfSpeechID",
                 table: "EnglishDictionaries",
-                column: "PartOfSpeechId");
+                column: "PartOfSpeechID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

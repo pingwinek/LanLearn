@@ -9,5 +9,8 @@ namespace Dto.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Symbol { get; set; }
+        public string PolishTranslate { get; set; }
+
+        public ICollection<EnglishDictionary> EnglishDictionary { get; set; }
     }
 }

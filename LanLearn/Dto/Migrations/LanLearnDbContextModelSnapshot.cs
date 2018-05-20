@@ -27,7 +27,7 @@ namespace Dto.Migrations
 
                     b.Property<string>("EnglishWord");
 
-                    b.Property<int?>("PartOfSpeechId");
+                    b.Property<int>("PartOfSpeechID");
 
                     b.Property<string>("PolishTranslate");
 
@@ -35,7 +35,7 @@ namespace Dto.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PartOfSpeechId");
+                    b.HasIndex("PartOfSpeechID");
 
                     b.ToTable("EnglishDictionaries");
                 });
@@ -47,6 +47,8 @@ namespace Dto.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("PolishTranslate");
+
                     b.Property<string>("Symbol");
 
                     b.HasKey("Id");
@@ -57,8 +59,9 @@ namespace Dto.Migrations
             modelBuilder.Entity("Dto.Models.EnglishDictionary", b =>
                 {
                     b.HasOne("Dto.Models.PartOfSpeech", "PartOfSpeech")
-                        .WithMany()
-                        .HasForeignKey("PartOfSpeechId");
+                        .WithMany("EnglishDictionary")
+                        .HasForeignKey("PartOfSpeechID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
