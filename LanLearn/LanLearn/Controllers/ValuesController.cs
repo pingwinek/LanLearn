@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Dto;
-using Dto.Models;
 using LanLearn.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +17,7 @@ namespace LanLearn.Controllers
 
         // GET api/values
         [HttpGet]
-        public WordsList Get()
+        public ActionResult Get()
         {
             var words = _translateService.GetListWords(1).Select(a => new Word
             {
@@ -35,7 +31,7 @@ namespace LanLearn.Controllers
                 Words = words
             };
 
-            return model;
+            return Ok(model);
         }
 
         // GET api/values/5
