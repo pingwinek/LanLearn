@@ -24,14 +24,14 @@ namespace LanLearn.Controllers
                 WordId = a.Id,
                 Name = a.EnglishWord,
                 Rank = a.Rank
-            });
+            }).ToList();
 
-            var model = new WordsList
-            {
-                Words = words
-            };
+            //var model = new WordsList
+            //{
+            //    Words = words
+            //};
 
-            return Ok(model);
+            return Ok(words);
         }
 
         // GET api/values/5
