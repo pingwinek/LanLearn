@@ -18,8 +18,9 @@ namespace LanLearn.Controllers
         // GET api/values
         [HttpGet]
         public ActionResult Get()
+
         {
-            var words = _translateService.GetListWords(1).Select(a => new Word
+            var words = _translateService.GetListWords(2).Select(a => new Word
             {
                 WordId = a.Id,
                 Name = a.EnglishWord,

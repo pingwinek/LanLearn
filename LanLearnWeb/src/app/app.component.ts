@@ -10,6 +10,8 @@ import { Dictionary } from './dictionary.model';
 export class AppComponent implements OnInit {
   title: string;
   dictionaries: Dictionary[];
+  translate: string;
+  index = 0;
 
   ngOnInit(): void {
     this.onGet();
@@ -25,7 +27,8 @@ export class AppComponent implements OnInit {
   }
 
   display() {
-    console.log(this.dictionaries[0]);
-    this.title = this.dictionaries[0].name;
+    console.log(this.dictionaries[this.index]);
+    this.title = this.dictionaries[this.index].name;
+    this.index = this.index + 1;
   }
 }
