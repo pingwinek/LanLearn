@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DictionaryService } from './dictionary.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule
   ],
   providers: [DictionaryService],
   bootstrap: [AppComponent]
