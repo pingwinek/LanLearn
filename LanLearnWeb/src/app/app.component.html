@@ -1,9 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
-  <label for="totleText">Translate</label>
-  <input id="titleText" type="text" [(ngModel)]="translate">
-</div>
-<button (click)=display()>Display</button>
+<form class="example-form">
+  <mat-card>
+    <mat-card-content>
+      <p>
+        {{ title }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Translate">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)=display()>{{ communicate }}</button>
+</form>
