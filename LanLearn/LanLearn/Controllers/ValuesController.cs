@@ -20,7 +20,7 @@ namespace LanLearn.Controllers
         public ActionResult Get()
 
         {
-            var words = _translateService.GetListWords(2).Select(a => new Word
+            var words = _translateService.GetListWords(8).Select(a => new Word
             {
                 WordId = a.Id,
                 Name = a.EnglishWord,

@@ -10,7 +10,7 @@ import { Dictionary } from './dictionary.model';
 export class AppComponent implements OnInit {
   title: string;
   dictionaries: Dictionary[];
-  translate: string;
+  translate = '';
   communicate: string;
   index = 0;
 
@@ -33,5 +33,6 @@ export class AppComponent implements OnInit {
     console.log(this.dictionaries[this.index]);
     this.title = this.dictionaries[this.index].name;
     this.index = this.index + 1;
+    this.translate = '';
   }
 }
