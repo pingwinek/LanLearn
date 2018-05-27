@@ -7,7 +7,7 @@
     </mat-card-content>
   </mat-card>
   <mat-form-field class="example-full-width">
-    <input matInput name="translate" placeholder="Translate" [(ngModel)]="translate" [disabled]="index <= 0">
+    <input matInput name="translate" placeholder="Translate" [(ngModel)]="translate" [disabled]="index <= 0 || index > 8">
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)=display()>{{ communicate }}</button>
+  <button mat-raised-button type="submit" color="primary" (click)=display() [disabled]="disabledButton">{{ communicate }}</button>
 </form>

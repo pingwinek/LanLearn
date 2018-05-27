@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   translate = '';
   communicate: string;
   index = 0;
+  disabledButton = false;
 
   ngOnInit(): void {
     this.onGet();
@@ -30,6 +31,13 @@ export class AppComponent implements OnInit {
 
   display() {
     this.communicate = 'Next';
+    if (this.index === 7) {
+      this.communicate = 'Finish';
+    }
+    if (this.index === 8) {
+      this.disabledButton = true;
+      return;
+    }
     console.log(this.dictionaries[this.index]);
     this.title = this.dictionaries[this.index].name;
     this.index = this.index + 1;
