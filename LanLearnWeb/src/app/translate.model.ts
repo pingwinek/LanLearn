@@ -1,5 +1,5 @@
-export class Translate {
+export interface Translate {
 
-    public translate: string;
-    public wordId: number;
+    translate: string;
+    wordId: number;
 }

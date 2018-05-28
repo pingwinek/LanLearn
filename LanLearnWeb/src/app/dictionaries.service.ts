@@ -8,7 +8,9 @@ import { HttpErrorHandler, HandleError } from './http-error-handler.service';
 
 import { Headers, Response } from '@angular/http';
 import { map } from 'rxjs/operators';
+
 import { Dictionary } from './dictionary.model';
+import { Translate } from './translate.model';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -26,11 +28,19 @@ export class DictionariesService {
         this.handleError = httpErrorHandler.createHandleError('DictionariesService');
     }
 
-    /** GET heroes from the server */
+    /** GET dictionaries from the server */
     getDictionaries(): Observable<Dictionary[]> {
         return this.http.get<Dictionary[]>('http://localhost:57245/api/values')
             .pipe(
                 catchError(this.handleError('getDictionaries', []))
+            );
+    }
+
+    /** POST: add translate to the database */
+    sendTranslate(translate: Translate[]): Observable<Translate[]> {
+        return this.http.post<Translate[]>('http://localhost:57245/api/values', translate, httpOptions)
+            .pipe(
+                catchError(this.handleError('addTranslate', translate))
             );
     }
 }
