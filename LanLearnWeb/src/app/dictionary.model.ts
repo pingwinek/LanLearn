@@ -1,6 +1,6 @@
-export class Dictionary {
+export interface Dictionary {
 
-    public wordId: number;
-    public name: string;
-    public rank: number;
+    wordId: number;
+    name: string;
+    rank: number;
 }

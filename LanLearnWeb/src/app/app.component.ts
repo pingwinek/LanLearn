@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DictionaryService } from './dictionary.service';
+import { DictionariesService } from './dictionaries.service';
 import { Dictionary } from './dictionary.model';
+import { Translate } from './translate.model';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +15,14 @@ export class AppComponent implements OnInit {
   communicate: string;
   index = 0;
   disabledButton = false;
+  translated: Translate;
 
   ngOnInit(): void {
     this.onGet();
     this.communicate = 'Start';
   }
 
-  constructor(private dictionaryService: DictionaryService) { }
+  constructor(private dictionaryService: DictionariesService) { }
 
   onGet() {
     this.dictionaryService.getDictionaries()
@@ -36,11 +38,16 @@ export class AppComponent implements OnInit {
     }
     if (this.index === 8) {
       this.disabledButton = true;
+      this.title = '';
       return;
     }
     console.log(this.dictionaries[this.index]);
     this.title = this.dictionaries[this.index].name;
     this.index = this.index + 1;
     this.translate = '';
+  }
+
+  sendTranslate() {
+    // this.dictionaryService.postDictionaries(this.translated);
   }
 }
