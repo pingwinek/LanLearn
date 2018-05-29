@@ -11,9 +11,10 @@ using System;
 namespace Dto.Migrations
 {
     [DbContext(typeof(LanLearnDbContext))]
-    partial class LanLearnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180529190038_second")]
+    partial class second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -40,7 +40,7 @@ export class DictionariesService {
     sendTranslate(translate: Translate[]): Observable<Translate[]> {
         return this.http.post<Translate[]>('http://localhost:57245/api/values', translate, httpOptions)
             .pipe(
-                catchError(this.handleError('addTranslate', translate))
+                catchError(this.handleError('sendTranslate', translate))
             );
     }
 }

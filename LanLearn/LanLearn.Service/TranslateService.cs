@@ -20,5 +20,11 @@ namespace LanLearn.Service
         {
             return _context.EnglishDictionaries.Take(count);
         }
+
+        public void SendTranslate(string[] translate)
+        {
+            _context.Add(translate);
+            _context.SaveChanges();
+        }
     }
 }

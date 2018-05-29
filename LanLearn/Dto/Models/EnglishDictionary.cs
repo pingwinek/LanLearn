@@ -7,7 +7,6 @@ namespace Dto.Models
 {
     public class EnglishDictionary
     {
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public string EnglishWord { get; set; }
         public string PolishTranslate { get; set; }

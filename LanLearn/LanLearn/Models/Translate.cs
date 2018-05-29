@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace LanLearn.Models
 {
-    public class WordsList
+    public class Translate
     {
-        public IEnumerable<Word> Words { get; set; }
+        public int WordId { get; set; }
+        public string TranslateWord { get; set; }
     }
 }

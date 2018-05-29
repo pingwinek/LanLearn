@@ -18,11 +18,13 @@ namespace Dto
 
         public DbSet<EnglishDictionary> EnglishDictionaries { get; set; }
         public DbSet<PartOfSpeech> PartsOfSpeech { get; set; }
+        public DbSet<Result> Results { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PartOfSpeech>().ToTable("PartsOfSpeech");
             modelBuilder.Entity<EnglishDictionary>().ToTable("EnglishDictionaries");
+            modelBuilder.Entity<Result>().ToTable("Results");
         }
     }
 }

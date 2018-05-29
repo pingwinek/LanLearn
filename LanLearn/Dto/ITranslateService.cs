@@ -8,5 +8,6 @@ namespace Dto
     public interface ITranslateService
     {
         IEnumerable<EnglishDictionary> GetListWords(int account);
+        void SendTranslate(string[] translate);
     }
 }

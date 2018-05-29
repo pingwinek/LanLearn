@@ -18,7 +18,6 @@ namespace LanLearn.Controllers
         // GET api/values
         [HttpGet]
         public ActionResult Get()
-
         {
             var words = _translateService.GetListWords(8).Select(a => new Word
             {
@@ -27,13 +26,16 @@ namespace LanLearn.Controllers
                 Rank = a.Rank
             }).ToList();
 
-            //var model = new WordsList
-            //{
-            //    Words = words
-            //};
-
             return Ok(words);
         }
+
+        // GET api/values
+        //[HttpGet]
+        //public ActionResult GetResult(translate)
+        //{
+
+        //    return Ok(result);
+        //}
 
         // GET api/values/5
         [HttpGet("{id}")]
@@ -44,8 +46,9 @@ namespace LanLearn.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]string[] value)
         {
+            _translateService.SendTranslate(value);
         }
 
         // PUT api/values/5
