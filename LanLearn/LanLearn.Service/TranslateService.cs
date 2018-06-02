@@ -21,10 +21,9 @@ namespace LanLearn.Service
             return _context.EnglishDictionaries.Take(count);
         }
 
-        public void SendTranslate(string[] translate)
+        public EnglishDictionary GetTranslate(int translateId)
         {
-            _context.Add(translate);
-            _context.SaveChanges();
+            return _context.EnglishDictionaries.FirstOrDefault(x => x.Id == translateId);
         }
     }
 }

@@ -16,6 +16,9 @@
     <Compile Remove="Migrations\20180520074312_second.cs" />
     <Compile Remove="Migrations\20180520093520_initial.cs" />
     <Compile Remove="Migrations\20180520094441_initial.cs" />
+    <Compile Remove="Migrations\20180529190038_second.cs" />
+    <Compile Remove="Migrations\20180529192823_third.cs" />
+    <Compile Remove="Migrations\20180529193002_fourth.cs" />
   </ItemGroup>
 
   <ItemGroup>

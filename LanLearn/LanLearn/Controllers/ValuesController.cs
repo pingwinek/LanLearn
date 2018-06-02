@@ -29,13 +29,14 @@ namespace LanLearn.Controllers
             return Ok(words);
         }
 
-        // GET api/values
-        //[HttpGet]
-        //public ActionResult GetResult(translate)
-        //{
+        //GET api/values
+       [HttpGet]
+        public ActionResult GetResult(int translateId)
+        {
+            var result = _translateService.GetTranslate(translateId);
 
-        //    return Ok(result);
-        //}
+            return Ok(result);
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]
