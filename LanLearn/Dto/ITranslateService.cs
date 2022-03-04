@@ -9,5 +9,6 @@ namespace Dto
     {
         IEnumerable<EnglishDictionary> GetListWords(int account);
         EnglishDictionary GetTranslate(int translateId);
+        void SendTranslate(string[] value);
     }
 }
