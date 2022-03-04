@@ -25,5 +25,10 @@ namespace LanLearn.Service
         {
             return _context.EnglishDictionaries.FirstOrDefault(x => x.Id == translateId);
         }
+
+        public void SendTranslate(string[] value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
